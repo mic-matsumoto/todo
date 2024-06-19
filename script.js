@@ -45,8 +45,10 @@ remove.addEventListener('click', () => {
     // チェックが入っている項目だけを削除
     list = list.filter(item => !item.done);
   } else {
-    // チェックが入っていない場合はすべて削除
-    list = [];
+    // チェックが入っていない場合は全て削除する前に確認
+    if (confirm("全て削除しても良いですか？")) {
+      list = [];
+    }
   }
 
   renderList();
