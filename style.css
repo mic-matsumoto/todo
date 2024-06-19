@@ -1,0 +1,51 @@
+main {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+}
+input#todo {
+  border: none;
+  width: 80%;
+  border-bottom: 1px solid lightgray;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+button#submit {
+  font-size: 16px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background-color: lightseagreen;
+}
+button#remove {
+  padding: 5px 10px;
+  margin-top: 20px;
+  background-color: lightseagreen;
+  border-radius: 15px;
+}
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-weight: 100;
+}
+th, td {
+  border-bottom: 1px solid lightgray;
+  height: 30px;
+}
+th {
+  color: white;
+  background-color: lightseagreen;
+  padding: 0 10px;
+}
+th#done {
+  width: 10%;
+}
+th#todo {
+  width: 90%;
+}
