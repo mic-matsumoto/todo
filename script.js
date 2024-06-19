@@ -38,7 +38,16 @@ submit.addEventListener('click', () => {
 });
 
 remove.addEventListener('click', () => {
-  list = list.filter(item => !item.done);
+  // チェックが入っている項目があるかどうかを確認
+  const hasCheckedItems = list.some(item => item.done);
+
+  if (hasCheckedItems) {
+    // チェックが入っている項目だけを削除
+    list = list.filter(item => !item.done);
+  } else {
+    // チェックが入っていない場合はすべて削除
+    list = [];
+  }
+
   renderList();
 });
-
