@@ -14,17 +14,20 @@ button {
   cursor: pointer;
   border: none;
   color: white;
+  background-color: lightseagreen;
+}
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }
 button#submit {
   font-size: 16px;
   padding: 0 4px;
   border-radius: 50%;
-  background-color: lightseagreen;
 }
 button#remove {
   padding: 5px 10px;
   margin-top: 20px;
-  background-color: lightseagreen;
   border-radius: 15px;
 }
 table {

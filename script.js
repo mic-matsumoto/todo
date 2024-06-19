@@ -6,6 +6,11 @@ const submit = document.getElementById('submit');
 const remove = document.getElementById('remove');
 let list = [];
 
+// 入力フィールドのイベントリスナーを追加
+todo.addEventListener('input', () => {
+  submit.disabled = !todo.value.trim();
+});
+
 const addItem = (item) => {
   const tr = document.createElement('tr');
   tr.innerHTML = `
@@ -28,13 +33,17 @@ const addItem = (item) => {
 const renderList = () => {
   table.querySelectorAll('tr:not(:first-child)').forEach(tr => tr.remove());
   list.forEach(addItem);
+  // リストの状態に応じて削除ボタンを有効/無効にする
+  remove.disabled = list.length === 0;
 };
 
 submit.addEventListener('click', () => {
-  const item = { todo: todo.value || '未定のTODO', done: false };
+  const item = { todo: todo.value.trim() || '未定のTODO', done: false };
   list.push(item);
   addItem(item);
   todo.value = '';
+  submit.disabled = true; // 入力フィールドが空になったらボタンを再度無効化
+  remove.disabled = false; // リストに項目が追加されたので削除ボタンを有効化
 });
 
 remove.addEventListener('click', () => {
@@ -52,4 +61,10 @@ remove.addEventListener('click', () => {
   }
 
   renderList();
+});
+
+// ページロード時にボタンを無効にする
+document.addEventListener('DOMContentLoaded', () => {
+  submit.disabled = !todo.value.trim();
+  remove.disabled = list.length === 0;
 });
